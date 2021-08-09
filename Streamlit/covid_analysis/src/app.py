@@ -1,14 +1,17 @@
 import streamlit as st
 import pandas as pd
-import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
+import matplotlib.pyplot as plt
+
+from time import sleep
 
 @st.cache
 def carrega_dados(caminho):
-
     dados = pd.read_csv(caminho)
+    sleep(3)
     return dados
+
 
 def grafico_comparativo(dados_2019, dados_2020, causa, estado = 'BRASIL'):
 
@@ -24,10 +27,9 @@ def grafico_comparativo(dados_2019, dados_2020, causa, estado = 'BRASIL'):
 
     dados = pd.DataFrame({'Total': lista, 'Ano': [2019, 2020]})
 
-    fig = plt.figure(figsize = (8, 6))
-    ax = fig.add_subplot()
+    fig, ax = plt.subplots()
     ax = sns.barplot(x = 'Ano', y = 'Total', data = dados)
-    ax.set_title(f'Óbitos por {causa} -> {estado}')
+    ax.set_title(f'Óbitos por {causa} - {estado}')
 
     return fig
 
