@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
 
+@st.cache
 def carrega_dados(caminho):
 
     dados = pd.read_csv(caminho)
