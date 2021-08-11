@@ -1,4 +1,4 @@
-matplotlib
-seaborn
-pandas
-numpy
+matplotlib==3.4.1
+seaborn==0.11.1
+pandas==1.2.3
+numpy==1.21.1
